@@ -1,16 +1,10 @@
 import { Avatar } from "antd"
 import type { AvatarProps } from "antd"
 
-type CustomAvatarProps = AvatarProps & {
-    name: string
-}
+import { getNameInitials } from "../utils/getNameInitials"
 
-const getInitials = (name: string) => {
-    return name
-        .split(" ")
-        .map((n) => n[0])
-        .join("")
-        .toUpperCase()
+type CustomAvatarProps = AvatarProps & {
+    name?: string
 }
 
 export const CustomAvatar = ({ name, style, ...rest }: CustomAvatarProps) => {
@@ -26,7 +20,7 @@ export const CustomAvatar = ({ name, style, ...rest }: CustomAvatarProps) => {
                 ...style,
             }}
         >
-            {getInitials(name)}
+            {name ? getNameInitials(name) : ""}
         </Avatar>
     )
 }
