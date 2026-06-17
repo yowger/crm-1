@@ -10,7 +10,6 @@ type CustomAvatarProps = AvatarProps & {
 export const CustomAvatar = ({ name, style, ...rest }: CustomAvatarProps) => {
     return (
         <Avatar
-            {...rest}
             size="small"
             style={{
                 backgroundColor: "#87d068",
@@ -19,6 +18,7 @@ export const CustomAvatar = ({ name, style, ...rest }: CustomAvatarProps) => {
                 justifyContent: "center",
                 ...style,
             }}
+            {...rest}
         >
             {name ? getNameInitials(name) : ""}
         </Avatar>
