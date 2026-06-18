@@ -17,11 +17,12 @@ import { BrowserRouter, Outlet, Route, Routes } from "react-router"
 import { createClient } from "graphql-ws"
 
 import { authProvider } from "./providers/auth"
-import { Home } from "./pages/Home"
+import { Home } from "./pages/home/Home"
 import { Register } from "./pages/Register"
 import { Login } from "./pages/Login"
 import { ForgotPassword } from "./pages/ForgotPassword"
 import { Layout } from "./components/layout/Layout"
+import { resources } from "./config/resources"
 
 const API_URL = "https://api.nestjs-query.refine.dev/graphql"
 const WS_URL = "wss://api.nestjs-query.refine.dev/graphql"
@@ -48,6 +49,7 @@ function App() {
                                 projectId: "InBoqM-aW2aYw-ONAijf",
                                 liveMode: "auto",
                             }}
+                            resources={resources}
                         >
                             <Routes>
                                 {/* <Route index element={<WelcomePage />} /> */}
